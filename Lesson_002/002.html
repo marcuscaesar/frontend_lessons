@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson two. Simple HTML page</title>
+	<style>
+		header {
+			background-color:black;
+			color:white;
+			text-align:center;
+			padding:5px;
+		}
+		#content {
+			display: flex;
+			flex-direction: row;
+		}
+		nav {
+			background-color:#eeeeee;
+			width:10%;
+			width: 100px;
+			padding:5px; 
+		}
+		#cities {
+			display: flex;
+			flex-direction: column;
+		}
+		.city {
+			padding: 5px;
+			margin: 5px;
+		}
+		footer {
+			background-color:black;
+			color:white;
+			clear:both;
+			text-align:center;
+			padding:5px; 
+		}
+		@media (max-width: 600px){
+			nav {
+				width: 100%;
+			}
+			#content {
+				display:inline;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<header>
+	<h1>Lesson 002 - Responsive Web Design</h1>
+</header>
+
+<div id="content">
+	<nav>
+		<a href="#London">London</a><br>
+		<a href="#Paris">Paris</a><br>
+		<a href="#Tokyo">Tokyo</a><br>
+		<a href="#Other">Other</a>
+	</nav>
+
+	<div id="cities">
+		<div class="city" id="London">
+		  <h2>London</h2>
+		  London is the capital city of England.<br>
+		  It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+		</div>
+
+		<div class="city" id="Paris">
+		  <h2>Paris</h2>
+		  Paris is the capital of France.<br> 
+		  The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.
+		</div>
+
+		<div class="city" id="Tokyo">
+		  <h2>Tokyo</h2>
+		  Tokyo is the capital of Japan.<br>
+		  It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.
+		</div>
+
+		<div class="city" id="Other">
+		  <h2>Some other city</h2>
+		  <p>This is a description for some other city.</p>
+		</div>
+	</div>
+</div>
+<footer>
+	EPAM: Frontend developers lessons
+</footer>
+
+</body>
+</html>
