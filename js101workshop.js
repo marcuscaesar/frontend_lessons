@@ -27,13 +27,22 @@ var Gamer = {
       symbol: "",
       selector: "",
       onClickHandler: "this.cellOwner = Gamer.HUMAN",
-      doOpponentTurn: function() {}
+      opponent: null,
+      doTurn: function() {}
     },
     HUMAN: {
       symbol: "X",
       selector: " human-selected ",
       onClickHandler: "",
-      doOpponentTurn: function() {
+      opponent: null,
+      doTurn: function() {}
+    },
+    COMPUTER: {
+      symbol: "O",
+      selector: " computer-selected ",
+      onClickHandler: "",
+      opponent: null,
+      doTurn: function() {
         for (var cellIndex = 0; cellIndex < Game.gameboard.cells.length; cellIndex++) {
           var gameCell = Game.gameboard.cells[cellIndex];
           if (!gameCell.isSelected) {
@@ -42,12 +51,6 @@ var Gamer = {
           }
         }
       }
-    },
-    COMPUTER: {
-      symbol: "O",
-      selector: " computer-selected ",
-      onClickHandler: "",
-      doOpponentTurn: function() {}
     }
 }
 
@@ -84,8 +87,8 @@ var GameCell = {
         this.setAttribute("class", this.getAttribute("class") + gamer.selector);
         this.setAttribute("onclick", gamer.onClickHandler);
         this.innerHTML = gamer.symbol;
-        if (Game.checkWinner() == Gamer.NONE) {
-          gamer.doOpponentTurn();
+        if (Game.checkWinner() == Gamer.NONE && gamer.opponent != null) {
+          gamer.opponent.doTurn();
           Game.checkWinner();
         }
       }
@@ -143,6 +146,9 @@ var Game = {
   gameboard: {},
   
   start: function() {
+    Gamer.HUMAN.opponent = Gamer.COMPUTER;
+    Gamer.COMPUTER.opponent = Gamer.HUMAN;
+    
     Game.messageBox = MessageBox.create();
     Game.messageBox.message = "Game started !";
     
@@ -165,6 +171,7 @@ var Game = {
         var cellOwner2 = cells[winMask[2]].cellOwner;
         if (cellOwner0 == cellOwner1 && cellOwner1 == cellOwner2) {
           winner = cellOwner0;
+          break;
         }
       }
     }
@@ -172,20 +179,27 @@ var Game = {
     if (winner != Gamer.NONE) {
       Game.setWinner(winner);
     }
+    
     return winner;
   },
   
   setWinner: function(gamer) {
-    Game.messageBox.messageOwner = gamer;
+    var messageString = "";
     switch (gamer) {
       case Gamer.HUMAN:
-        Game.messageBox.message = "Human wins !";
+        messageString = "Human wins !";
         break;
         
       case Gamer.COMPUTER:
-        Game.messageBox.message = "Computer wins !";
+        messageString = "Computer wins !";
         break;
     }
+    
+    messageString += "<BR>";
+    messageString += "Refresh page to restart.";
+    
+    Game.messageBox.messageOwner = gamer;
+    Game.messageBox.message = messageString;
   }
 }
 
