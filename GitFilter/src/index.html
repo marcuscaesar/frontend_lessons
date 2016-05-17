@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+		<title>JS Workshop : Angular.JS filters</title>
+
+    <!-- Material Design library -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel='stylesheet' href='https://code.getmdl.io/1.1.3/material.indigo-pink.min.css'>
+    <script defer src='https://code.getmdl.io/1.1.3/material.min.js'></script>
+
+    <!-- AngularJS library -->  
+    <script src='../.lib/angular/angular.js'></script> 
+    
+    <!-- Application scrips -->
+    <script src="app.js"></script>
+    <script src="controllers/main-controller.js"></script>
+    <script src="services/github-user-service.js"></script>
+    <script src="services/github-users-service.js"></script>
+    <script src="directives/github-user-directive.js"></script>
+    
+    <!-- Application styles -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+	</head>
+
+  <body ng-app='angularApplication'>
+    <div ng-controller='applicationController'>
+      <div class='mdl-layout mdl-js-layout mdl-layout--fixed-header'>
+        
+        <header class='mdl-layout__header'>
+          <div class='mdl-layout__header-row'>
+            <span class='mdl-layout-title'>AngularJS - Workshop #02</span>
+          </div>
+        </header>
+        
+        <main class='mdl-layout__content'>
+          <div class='mdl-grid'>
+            <div class='mdl-cell mdl-cell--8-col'>
+		          <ul class='mdl-list' ng-repeat='githubUserInfo in githubUsersInfo'>
+		            <github-user></github-user>
+		          </ul>
+	          </div>
+          </div>
+        </main>
+        
+        <footer class='mdl-mini-footer'>
+          <div class='mdl-mini-footer__left-section'>
+            <div class='mdl-logo'>AngularJS - Workshop #02</div>
+            </div>
+        </footer>
+      </div>
+    </div>
+	</body>
+</html>
