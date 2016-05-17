@@ -5,8 +5,8 @@ angular.module('angularApplication')
 			var userInfo = {};
 			
 			$http({
+        url: 'https://api.github.com/users/' + userLogin,
 				method: 'GET',
-				url: 'https://api.github.com/users/' + userLogin,
 			}).then(
 				function successCallBack(response){
 					callback(response.data);
