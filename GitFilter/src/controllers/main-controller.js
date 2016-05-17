@@ -1,7 +1,7 @@
 angular.module('angularApplication')
 .controller('applicationController', 
-		['$scope', '$http', 'GithubUsersService', 
-		 function($scope, $http, GithubUsersService){
+		['$scope', '$http', 'GithubUsersService', 'userNameFilter',
+		 function($scope, $http, GithubUsersService, userNameFilter){
 	$scope.githubUsersInfo = [];
 	
 	GithubUsersService.getUsers(function(userInfo) {
