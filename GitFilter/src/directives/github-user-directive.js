@@ -18,7 +18,8 @@ angular.module('angularApplication')
       "    Now has {{githubUserInfo.followers}} followers and {{githubUserInfo.public_repos}} public repositories." +
       "  </div>" +
       "  <div class='mdl-card__actions mdl-card--border'>" +
-      "    <a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' ng-click='displayMoreUserInfo()'>" + 
+      "    <a class='mdl-button mdl-js-button' data-ng-click='displayMoreUserInfo(githubUserInfo.login)'>" +
+      "      <i class='material-icons'>add</i>" +
       "      More..." + 
       "    </a>" +
       "  </div>" +
