@@ -19,6 +19,7 @@
     <script src="services/github-users-service.js"></script>
     <script src="directives/github-user-directive.js"></script>
     <script src="filters/github-username-filter.js"></script>
+    <script src="filters/github-useremail-filter.js"></script>
     
     <!-- Application styles -->
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -36,16 +37,28 @@
         
         <main class='mdl-layout__content'>
           <div class='mdl-grid'>
-            <div class="mdl-cell">
-              <div class="filter-container">
-                <div>Filter users by login:</div>
-                <input type='text' ng-model='userNameFilterString'>
-              </div>
-            </div>
             <div class='mdl-cell'>
-              <div class='mdl-list' ng-repeat='githubUserInfo in githubUsersPage | userName:userNameFilterString'>
-                <github-user></github-user>
+            
+              <div class='wide-element mdl-card mdl-shadow--2dp'>
+                <div class='mdl-card__title'>
+                  <h2 class='mdl-card__title-text'>Quick filter</h2>
+                </div>
+                <div class='mdl-card__actions mdl-card--border'>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="userNameFilterString" ng-model='userNameFilterString'>
+                    <label class="mdl-textfield__label" for="userNameFilterString">User name...</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="userEmailFilterString" ng-model='userEmailFilterString'>
+                    <label class="mdl-textfield__label" for="userEmailFilterString">User email...</label>
+                  </div>
+                </div>
               </div>
+              
+              <ul class='mdl-list' ng-repeat='userInfo in loadedUsers | userName:userNameFilterString | userEmail:userName:userEmailFilterString'>
+                <github-user></github-user>
+              </ul>
+
               <div>
                 <button class='wide-element mdl-button mdl-js-button mdl-button--raised' ng-click='readMoreUsers()''>
                   Read more...

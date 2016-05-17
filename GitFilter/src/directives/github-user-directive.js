@@ -1,28 +1,22 @@
 angular.module('angularApplication')
 .directive('githubUser', function() {
   return {
-    template: "" +
-      "<div class='wide-element mdl-card mdl-shadow--2dp'>" +
-      "  <div class='aligned-topic mdl-card__title'>" +
-      "    <div class=\'item-avatar\'>" +
-      "      <img src='{{githubUserInfo.avatar_url}}'/>" +
-      "    </div>" +
-      "    <div>" +
-      "      <span class='mdl-card__title-text'>{{githubUserInfo.name}}</span> " +
-      "      <span><a href='mailto:{{githubUserInfo.email}}'>{{githubUserInfo.email}}</a></span>" +
-      "    </div>" +
-      "  </div>" +
-      "  <div class='mdl-card__supporting-text'>" +
-      "    <b>{{githubUserInfo.name}}</b> joined GitHub at {{githubUserInfo.created_at.substring(0, 10)}}." +
-      "    <p>" +
-      "    Now has {{githubUserInfo.followers}} followers and {{githubUserInfo.public_repos}} public repositories." +
-      "  </div>" +
-      "  <div class='mdl-card__actions mdl-card--border'>" +
-      "    <a class='mdl-button mdl-js-button' data-ng-click='displayMoreUserInfo(githubUserInfo.login)'>" +
-      "      <i class='material-icons'>add</i>" +
-      "      More..." + 
-      "    </a>" +
-      "  </div>" +
-      "</div>"
+	  template: "" +
+	  "<li class='wide-element aligned-topic mdl-list__item mdl-list__item--two-line'>" +
+	  "  <div class='item-avatar'>" +
+	  "    <img src='{{userInfo.avatar_url}}'>" +
+	  "  </div>" +
+	  "  <div class='mdl-list__item-primary-content'>" +
+	  "    <div>{{userInfo.name}}</div>" +
+	  "    <div class='mdl-list__item-sub-title'>" +
+	  "      <span><a href='mailto:{{userInfo.email}}'>{{userInfo.email}}</a></span>" +
+	  "    </div>" +
+	  "  </div>" +
+	  "  <div class='mdl-list__item-secondary-content'>" +
+	  "    <a class='mdl-button mdl-js-button' data-ng-click='displayMoreUserInfo(userInfo.login)'>" +
+	  "      More..." +
+	  "    </a>" +
+	  "  </div>" +
+	  "</li>"
   };
 });
