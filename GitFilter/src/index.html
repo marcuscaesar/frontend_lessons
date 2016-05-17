@@ -37,10 +37,10 @@
         <main class='mdl-layout__content'>
           <div class='mdl-grid'>
             <div class="mdl-cell">
-	            <div class="filter-container">
-	              <div>Filter users by login:</div>
-	              <input type='text' ng-model='userNameFilterString'>
-	            </div>
+              <div class="filter-container">
+                <div>Filter users by login:</div>
+                <input type='text' ng-model='userNameFilterString'>
+              </div>
             </div>
             <div class='mdl-cell'>
               <div class='mdl-list' ng-repeat='githubUserInfo in githubUsersPage | userName:userNameFilterString'>
