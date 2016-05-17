@@ -1,7 +1,7 @@
 angular.module('angularApplication')
 .directive('githubUser', function() {
-	return {
-		template: "" +
+  return {
+    template: "" +
       "<div class='wide-element mdl-card mdl-shadow--2dp'>" +
       "  <div class='aligned-topic mdl-card__title'>" +
       "    <div class=\'item-avatar\'>" +
@@ -23,5 +23,5 @@ angular.module('angularApplication')
       "    </a>" +
       "  </div>" +
       "</div>"
-	};
+  };
 });
