@@ -6,12 +6,12 @@ angular.module('angularApplication')
     }
     
     var filteredArray = [];
-	usersArray.forEach(function(item, itemIndex, itemArray) {
-		if (item.login.indexOf(userNameFilterString) > -1) {
-			filteredArray.push(item);
-		}
-	});
-    
+    usersArray.forEach(function(item, itemIndex, itemArray) {
+      if (item.login.indexOf(userNameFilterString) > -1) {
+        filteredArray.push(item);
+      }
+    });
+
     return filteredArray;
   }
 });
