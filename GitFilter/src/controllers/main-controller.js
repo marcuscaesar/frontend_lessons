@@ -30,5 +30,9 @@ angular.module('angularApplication')
     }
   };
 
+  $scope.displayMoreUserInfo = function(userLogin) {
+    console.log("TODO: additional info will be shown for user: " + userLogin);
+  }
+  
   $scope.readUsers();
 }]);
