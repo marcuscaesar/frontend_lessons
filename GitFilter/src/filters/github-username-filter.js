@@ -7,7 +7,7 @@ angular.module('angularApplication')
     
     var filteredArray = [];
 	usersArray.forEach(function(item, itemIndex, itemArray) {
-		if (item.login.indexOf(userNameFilterString) > -1) {
+		if (item.name != null && item.name.indexOf(userNameFilterString) > -1) {
 			filteredArray.push(item);
 		}
 	});

@@ -7,7 +7,7 @@ angular.module('angularApplication')
     
     var filteredArray = [];
 	usersArray.forEach(function(item, itemIndex, itemArray) {
-		if (item.email.indexOf(userEmailFilterString) > -1) {
+		if (item.email != null && item.email.indexOf(userEmailFilterString) > -1) {
 			filteredArray.push(item);
 		}
 	});
